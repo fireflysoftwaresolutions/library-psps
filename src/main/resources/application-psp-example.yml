@@ -70,7 +70,7 @@ management:
 # Logging
 logging:
   level:
-    com.firefly.psps: DEBUG
+    io.fireflysoftware.psps: DEBUG
     io.github.resilience4j: INFO
     
 # Example: Multi-PSP Configuration (advanced)

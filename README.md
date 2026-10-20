@@ -75,7 +75,7 @@ Before using this library, ensure you have:
 
 ```xml
 <dependency>
-    <groupId>com.firefly</groupId>
+    <groupId>io.fireflysoftware</groupId>
     <artifactId>library-psps</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 </dependency>

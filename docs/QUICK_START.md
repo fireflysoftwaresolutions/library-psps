@@ -8,12 +8,12 @@ Get started with the Firefly PSP library in 5 minutes.
 
 ```xml
 <dependency>
-    <groupId>com.firefly</groupId>
+    <groupId>io.fireflysoftware</groupId>
     <artifactId>library-psps</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 </dependency>
 <dependency>
-    <groupId>com.firefly</groupId>
+    <groupId>io.fireflysoftware</groupId>
     <artifactId>library-psps-stripe-impl</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <scope>runtime</scope>

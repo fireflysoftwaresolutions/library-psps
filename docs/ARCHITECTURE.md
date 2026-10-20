@@ -103,7 +103,7 @@ Provider-specific operations use a registry for dynamic discovery.
 ## Package Structure
 
 ```
-com.firefly.psps
+io.fireflysoftware.psps
 ├── adapter/
 │   ├── PspAdapter.java
 │   └── ports/

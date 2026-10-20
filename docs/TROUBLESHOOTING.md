@@ -78,7 +78,7 @@ error: cannot find symbol PspAdapter
 **Solution**:
 ```xml
 <dependency>
-    <groupId>com.firefly</groupId>
+    <groupId>io.fireflysoftware</groupId>
     <artifactId>library-psps</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 </dependency>
@@ -107,7 +107,7 @@ NoSuchBeanDefinitionException: No qualifying bean of type 'PspAdapter'
 **Step 1**: Add a PSP implementation dependency
 ```xml
 <dependency>
-    <groupId>com.firefly</groupId>
+    <groupId>io.fireflysoftware</groupId>
     <artifactId>library-psps-stripe-impl</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <scope>runtime</scope>
@@ -477,7 +477,7 @@ curl http://localhost:8080/actuator/metrics/psp.operation | jq
 ```yaml
 logging:
   level:
-    com.firefly.psps: DEBUG
+    io.fireflysoftware.psps: DEBUG
 ```
 
 **Step 3**: Check timeout configuration
@@ -570,7 +570,7 @@ public void logPayment(PaymentRequest request) {
     </appender>
     
     <!-- Never log at TRACE level in production -->
-    <logger name="com.firefly.psps" level="INFO"/>
+    <logger name="io.fireflysoftware.psps" level="INFO"/>
 </configuration>
 ```
 
@@ -614,7 +614,7 @@ complianceService.logAuditEvent(AuditEvent.builder()
 
 If your issue isn't covered here:
 
-1. **Check the logs**: Enable DEBUG logging for `com.firefly.psps`
+1. **Check the logs**: Enable DEBUG logging for `io.fireflysoftware.psps`
 2. **Review metrics**: Check `/actuator/metrics` for anomalies
 3. **Test in isolation**: Create a minimal reproduction
 4. **Check PSP documentation**: Verify the PSP-specific behavior

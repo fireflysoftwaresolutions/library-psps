@@ -100,10 +100,10 @@ By extending the abstract components, your implementation automatically gets:
 Create ONE service class that extends `AbstractPspService`:
 
 ```java
-package com.firefly.psps.stripe.services;
+package io.fireflysoftware.psps.stripe.services;
 
-import com.firefly.psps.adapter.PspAdapter;
-import com.firefly.psps.services.AbstractPspService;
+import io.fireflysoftware.psps.adapter.PspAdapter;
+import io.fireflysoftware.psps.services.AbstractPspService;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -146,10 +146,10 @@ Create 5 controller classes (one for each domain):
 #### 2.1 Payment Controller
 
 ```java
-package com.firefly.psps.stripe.controllers;
+package io.fireflysoftware.psps.stripe.controllers;
 
-import com.firefly.psps.controllers.AbstractPaymentController;
-import com.firefly.psps.services.AbstractPspService;
+import io.fireflysoftware.psps.controllers.AbstractPaymentController;
+import io.fireflysoftware.psps.services.AbstractPspService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -260,10 +260,10 @@ This is where you write the PSP-specific logic. You need to implement 9 port int
 #### 3.1 Payment Port Example
 
 ```java
-package com.firefly.psps.stripe.adapters;
+package io.fireflysoftware.psps.stripe.adapters;
 
-import com.firefly.psps.adapter.ports.PaymentPort;
-import com.firefly.psps.dtos.payments.*;
+import io.fireflysoftware.psps.adapter.ports.PaymentPort;
+import io.fireflysoftware.psps.dtos.payments.*;
 import com.stripe.Stripe;
 import com.stripe.model.PaymentIntent;
 import org.springframework.http.ResponseEntity;
@@ -339,10 +339,10 @@ public class StripePaymentPort implements PaymentPort {
 Create mapper classes to convert between library-psps DTOs and provider-specific DTOs:
 
 ```java
-package com.firefly.psps.stripe.mappers;
+package io.fireflysoftware.psps.stripe.mappers;
 
-import com.firefly.psps.domain.*;
-import com.firefly.psps.dtos.payments.*;
+import io.fireflysoftware.psps.domain.*;
+import io.fireflysoftware.psps.dtos.payments.*;
 import com.stripe.model.PaymentIntent;
 import com.stripe.param.PaymentIntentCreateParams;
 
@@ -388,10 +388,10 @@ public class PaymentMapper {
 Create the main adapter that ties everything together:
 
 ```java
-package com.firefly.psps.stripe.adapters;
+package io.fireflysoftware.psps.stripe.adapters;
 
-import com.firefly.psps.adapter.PspAdapter;
-import com.firefly.psps.adapter.ports.*;
+import io.fireflysoftware.psps.adapter.PspAdapter;
+import io.fireflysoftware.psps.adapter.ports.*;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -456,7 +456,7 @@ public class StripePspAdapter implements PspAdapter {
 ### Step 6: Spring Boot Configuration
 
 ```java
-package com.firefly.psps.stripe.config;
+package io.fireflysoftware.psps.stripe.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -465,7 +465,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableConfigurationProperties(StripeProperties.class)
-@ComponentScan("com.firefly.psps.stripe")
+@ComponentScan("io.fireflysoftware.psps.stripe")
 public class StripeAutoConfiguration {
     // Spring Boot will auto-discover all @Component classes
 }
@@ -483,7 +483,7 @@ class StripeProperties {
 Create `src/main/resources/META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`:
 
 ```
-com.firefly.psps.stripe.config.StripeAutoConfiguration
+io.fireflysoftware.psps.stripe.config.StripeAutoConfiguration
 ```
 
 ---

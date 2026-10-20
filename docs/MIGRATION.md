@@ -393,7 +393,7 @@ public class CustomPaymentOperations implements PaymentOperations {
 ```xml
 <!-- pom.xml -->
 <dependency>
-    <groupId>com.firefly</groupId>
+    <groupId>io.fireflysoftware</groupId>
     <artifactId>library-psps</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 </dependency>
@@ -892,7 +892,7 @@ A: Typically 6-8 weeks for full rollout, 2-3 weeks for simple cases.
 
 - **Documentation**: [/docs/README.md](README.md)
 - **Examples**: [/examples](../examples)
-- **Issues**: [GitHub Issues](https://github.com/firefly/library-psps/issues)
+- **Issues**: [GitHub Issues](https://github.com/firefly-oss/library-psps/issues)
 - **Slack**: #library-psps-support
 
 ---
