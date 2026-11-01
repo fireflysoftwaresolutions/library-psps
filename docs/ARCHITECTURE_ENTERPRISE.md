@@ -48,7 +48,7 @@ Production-ready patterns for fault tolerance and observability.
 #### **Resilience Patterns (Resilience4j)**
 ```java
 @Component
-public class ResilientPspService {
+public class ResilientPspServiceImpl {
     // Automatic application of:
     // 1. Circuit Breaker - Prevents cascading failures
     // 2. Rate Limiter    - Controls API call rate per PSP
@@ -264,8 +264,8 @@ public interface ReconciliationPort {
 │                                                                  │
 │  ┌─────────────────────────────────────────────────────────┐  │
 │  │ Cross-Cutting Concerns                                  │  │
-│  │  ├── ResilientPspService (Resilience4j wrapper)         │  │
-│  │  ├── PspHealthIndicator (Spring Actuator)              │  │
+│  │  ├── ResilientPspServiceImpl (Resilience4j wrapper)         │  │
+│  │  ├── PspHealthIndicatorImpl (Spring Actuator)              │  │
 │  │  ├── PaymentValidator (Pre-PSP validation)             │  │
 │  │  ├── PspFeeCalculator (Cost optimization)              │  │
 │  │  ├── PspRouter (Multi-PSP routing)                     │  │
@@ -303,7 +303,7 @@ public interface ReconciliationPort {
 2. Application → pspAdapter.payments().createPayment(request)
    │
    ▼
-3. ResilientPspService.execute("stripe", "payment", () -> ...)
+3. ResilientPspServiceImpl.execute("stripe", "payment", () -> ...)
    │
    ├─ Circuit Breaker: Check if circuit is OPEN
    │  └─ If OPEN: Fail fast (don't call PSP)

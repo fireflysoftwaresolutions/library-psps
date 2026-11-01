@@ -45,7 +45,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("Resilience Integration Tests")
 class ResilienceIntegrationTest {
 
-    private ResilientPspService resilientService;
+    private ResilientPspServiceImpl resilientService;
     private CircuitBreakerRegistry circuitBreakerRegistry;
     private RateLimiterRegistry rateLimiterRegistry;
     private RetryRegistry retryRegistry;
@@ -80,7 +80,7 @@ class ResilienceIntegrationTest {
         timeLimiterRegistry = config.timeLimiterRegistry(properties);
         meterRegistry = new SimpleMeterRegistry();
 
-        resilientService = new ResilientPspService(
+        resilientService = new ResilientPspServiceImpl(
             circuitBreakerRegistry,
             rateLimiterRegistry,
             retryRegistry,

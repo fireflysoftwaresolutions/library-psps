@@ -215,7 +215,7 @@ public class PspResilienceConfiguration {
      */
     @Bean
     @org.springframework.boot.autoconfigure.condition.ConditionalOnBean(io.micrometer.core.instrument.MeterRegistry.class)
-    public io.fireflysoftware.psps.resilience.ResilientPspService resilientPspService(
+    public io.fireflysoftware.psps.resilience.ResilientPspServiceImpl resilientPspService(
             CircuitBreakerRegistry circuitBreakerRegistry,
             RateLimiterRegistry rateLimiterRegistry,
             RetryRegistry retryRegistry,
@@ -224,7 +224,7 @@ public class PspResilienceConfiguration {
             io.micrometer.core.instrument.MeterRegistry meterRegistry) {
         
         logger.info("PSP ResilientPspService configured");
-        return new io.fireflysoftware.psps.resilience.ResilientPspService(
+        return new io.fireflysoftware.psps.resilience.ResilientPspServiceImpl(
                 circuitBreakerRegistry,
                 rateLimiterRegistry,
                 retryRegistry,
