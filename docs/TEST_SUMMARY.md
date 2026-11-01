@@ -23,7 +23,7 @@
 - Default configuration properties
 - Custom configuration from application properties
 - Conditional bean creation (enabled/disabled)
-- ResilientPspService configuration
+- ResilientPspServiceImpl configuration
 - Circuit breaker defaults
 - Retry exponential backoff configuration
 - Integration of all resilience components

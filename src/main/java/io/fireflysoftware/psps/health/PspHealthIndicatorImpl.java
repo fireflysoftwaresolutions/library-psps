@@ -39,12 +39,12 @@ import java.util.Map;
  * Exposed via Spring Boot Actuator /actuator/health endpoint.
  */
 @Component("pspHealth")
-public class PspHealthIndicator implements ReactiveHealthIndicator {
+public class PspHealthIndicatorImpl implements ReactiveHealthIndicator {
 
     private final PspAdapter pspAdapter;
     private final CircuitBreakerRegistry circuitBreakerRegistry;
 
-    public PspHealthIndicator(PspAdapter pspAdapter, CircuitBreakerRegistry circuitBreakerRegistry) {
+    public PspHealthIndicatorImpl(PspAdapter pspAdapter, CircuitBreakerRegistry circuitBreakerRegistry) {
         this.pspAdapter = pspAdapter;
         this.circuitBreakerRegistry = circuitBreakerRegistry;
     }

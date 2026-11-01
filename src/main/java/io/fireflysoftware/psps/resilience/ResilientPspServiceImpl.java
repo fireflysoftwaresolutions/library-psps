@@ -52,10 +52,10 @@ import java.util.function.Supplier;
  *     () -> pspAdapter.payments().createPayment(request));
  * </pre>
  */
-@Component
-public class ResilientPspService {
+@Component("resilientPspService")
+public class ResilientPspServiceImpl {
 
-    private static final Logger logger = LoggerFactory.getLogger(ResilientPspService.class);
+    private static final Logger logger = LoggerFactory.getLogger(ResilientPspServiceImpl.class);
 
     private final CircuitBreakerRegistry circuitBreakerRegistry;
     private final RateLimiterRegistry rateLimiterRegistry;
@@ -64,7 +64,7 @@ public class ResilientPspService {
     private final TimeLimiterRegistry timeLimiterRegistry;
     private final MeterRegistry meterRegistry;
 
-    public ResilientPspService(
+    public ResilientPspServiceImpl(
             CircuitBreakerRegistry circuitBreakerRegistry,
             RateLimiterRegistry rateLimiterRegistry,
             RetryRegistry retryRegistry,

@@ -16,8 +16,8 @@
 
 package io.fireflysoftware.psps.config;
 
-import io.fireflysoftware.psps.health.PspHealthIndicator;
-import io.fireflysoftware.psps.resilience.ResilientPspService;
+import io.fireflysoftware.psps.health.PspHealthIndicatorImpl;
+import io.fireflysoftware.psps.resilience.ResilientPspServiceImpl;
 import io.github.resilience4j.bulkhead.BulkheadRegistry;
 import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;
 import io.github.resilience4j.ratelimiter.RateLimiterRegistry;
@@ -114,9 +114,9 @@ class AutoConfigurationTest {
                     return new io.micrometer.core.instrument.simple.SimpleMeterRegistry();
                 })
                 .run(context -> {
-                    assertThat(context).hasSingleBean(ResilientPspService.class);
+                    assertThat(context).hasSingleBean(ResilientPspServiceImpl.class);
                     
-                    ResilientPspService service = context.getBean(ResilientPspService.class);
+                    ResilientPspServiceImpl service = context.getBean(ResilientPspServiceImpl.class);
                     assertThat(service).isNotNull();
                 });
     }
@@ -157,10 +157,10 @@ class AutoConfigurationTest {
                     assertThat(context).hasSingleBean(RetryRegistry.class);
                     assertThat(context).hasSingleBean(BulkheadRegistry.class);
                     assertThat(context).hasSingleBean(TimeLimiterRegistry.class);
-                    assertThat(context).hasSingleBean(ResilientPspService.class);
+                    assertThat(context).hasSingleBean(ResilientPspServiceImpl.class);
                     
                     // All components should be autowirable
-                    ResilientPspService service = context.getBean(ResilientPspService.class);
+                    ResilientPspServiceImpl service = context.getBean(ResilientPspServiceImpl.class);
                     assertThat(service).isNotNull();
                 });
     }
